@@ -7,6 +7,7 @@
     <title>Modifier un Article</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="{{ asset('css/add.css') }}" rel="stylesheet">
 </head>
 <body>
    <div class="container">
@@ -33,6 +34,11 @@
           <label for="description">Description</label>
           <input type="text" class="form-control" id="description" name="description" value="{{$article->description}}">
         </div>
+        
+        <div class="form-group">
+          <label for="image">L'image</label>
+          <input type="text" class="form-control" id="image" name="image" value="{{$article->image}}">
+        </div>
         <div class="form-group">
           <label for="date_creation">Date de création</label>
           <input type="date" class="form-control" id="date_creation" name="date_creation"value="{{$article->date_creation}}">
@@ -50,14 +56,12 @@
       </div>
       
         
-        <div class="form-group">
-          <label for="image">L'image</label>
-          <input type="text" class="form-control-file" id="image" name="image" value="{{$article->image}}">>
-        </div>
         <br> 
+       <div class="liens">
         <button type="submit" class="btn btn-primary">MODIFIER</button>
-        <br><br> 
+        
         <a href="/articles" class="btn btn-danger">Revenir à la liste des articles</a>
+       </div>
       </form>
    </div>
 </body>

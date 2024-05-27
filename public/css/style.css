@@ -1,0 +1,14 @@
+.container{
+    margin-top: 50px;
+}
+.card-img-top{
+    height: 300px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+.ajouter{
+    margin: 20px;
+}

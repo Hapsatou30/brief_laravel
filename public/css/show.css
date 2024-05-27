@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.retour{
+    margin: 20px;
+
+}
+.liens{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
