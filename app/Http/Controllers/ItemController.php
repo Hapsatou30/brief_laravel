@@ -13,17 +13,22 @@ class itemController extends Controller
         return view('items', compact('items'));
     }
     public function addItems(){
-        return view('/Add');
+        return view('/add');
     }
-    public function processing_add(Request $request)
+    public function processingAdd(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'description' => 'required',
+            'nom' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
+            'description' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
             'date_creation' => 'required',
             'la_une' => 'nullable|boolean',
-            'image' => 'required'
+            'image' => ['required', 'url'], // Doit être une URL valide
+        ], [
+            'nom.regex' => 'Le champ nom ne doit contenir que des lettres et des espaces.',
+            'description.regex' => 'Le champ description ne doit contenir que des lettres et des espaces.',
+            'image.url' => 'Le champ image doit être une URL valide.',
         ]);
+        
         $item = new item();
         $item->nom = $request->nom;
         $item->description = $request->description;
@@ -43,11 +48,15 @@ class itemController extends Controller
     {
         $request->validate([
             'id' => 'required|exists:items,id',
-            'nom'=>'required',
-            'description'=>'required',
-            'date_creation'=>'required',
-            'la_une'=>'nullable|boolean',
-            'image'=>'required',
+            'nom' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
+            'description' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
+            'date_creation' => 'required',
+            'la_une' => 'nullable|boolean',
+            'image' => ['required', 'url'], // Doit être une URL valide
+        ], [
+            'nom.regex' => 'Le champ nom ne doit contenir que des lettres et des espaces.',
+            'description.regex' => 'Le champ description ne doit contenir que des lettres et des espaces.',
+            'image.url' => 'Le champ image doit être une URL valide.',
         ]);
         $item = item::find($request->id);
         $item->nom = $request->nom;

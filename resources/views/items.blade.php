@@ -27,7 +27,7 @@
                            <div class="d-flex justify-content-between align-items-center ">
                                 <a href="/show/{{ $item->id }}" class="btn btn-primary"><i class="fas fa-info-circle"></i> </a>
                                 <a href="/update/{{ $item->id }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                <a href="/delete{{ $item->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
+                                <a href="/delete{{ $item->id }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer {{ $item->nom }} ?')"><i class="fas fa-trash-alt"></i> </a>
                             </div>
                          </div>
                    </div>
