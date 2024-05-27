@@ -11,23 +11,23 @@
 </head>
 <body>
     <div class="ajouter mb-3">
-        <a href="/Add" class="btn btn-success"><i class="fas fa-plus-circle"></i> Ajouter un article</a>
+        <a href="/add" class="btn btn-success"><i class="fas fa-plus-circle"></i> Ajouter un article</a>
     </div>
    <div class="container">
        <h1>La liste des articles</h1>
        <div class="row">
-           @foreach ($articles as $article)
+           @foreach ($items as $item)
                <div class="col-md-4 mb-4">
                    <div class="card h-100">
-                       @if ($article->image)
-                           <img src="{{ $article->image }}" class="card-img-top " alt="{{ $article->nom}}">
+                       @if ($item->image)
+                           <img src="{{ $item->image }}" class="card-img-top " alt="{{ $item->nom}}">
                        @endif
                        <div class="card-body">
-                           <h5 class="card-title">{{ $article->nom }}</h5>
+                           <h5 class="card-title">{{ $item->nom }}</h5>
                            <div class="d-flex justify-content-between align-items-center ">
-                                <a href="/show/{{ $article->id }}" class="btn btn-primary"><i class="fas fa-info-circle"></i> </a>
-                                <a href="/update/{{ $article->id }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                <a href="/delete{{ $article->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
+                                <a href="/show/{{ $item->id }}" class="btn btn-primary"><i class="fas fa-info-circle"></i> </a>
+                                <a href="/update/{{ $item->id }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                <a href="/delete{{ $item->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
                             </div>
                          </div>
                    </div>

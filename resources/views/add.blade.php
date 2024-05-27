@@ -23,7 +23,7 @@
         <li class="alert alert-danger">{{ $error }}</li>
         @endforeach
       </ul>
-    <form action="/Add/traitement" method="post" class="form-group" enctype="multipart/form-data">
+    <form action="/add/processing" method="post" class="form-group" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="nom">Titre de l'article</label>
@@ -57,7 +57,7 @@
         <br> 
         <div class="liens">
           <button type="submit" class="btn btn-primary">AJOUTER</button>
-        <a href="/articles" class="btn btn-danger">Revenir à la liste des articles</a>
+        <a href="/items" class="btn btn-danger">Revenir à la liste des articles</a>
         </div>
       </form>
    </div>
