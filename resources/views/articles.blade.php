@@ -20,11 +20,7 @@
                 <h5 class="card-title">{{ $article->nom }}</h5>
                 <a href="#" class="btn btn-primary"><i class="fas fa-info-circle"></i> Détails</a>
                 <a href="#" class="btn btn-info"><i class="fas fa-edit"></i> Modifier</a>
-                <form action="#" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</button>
-                </form>
+                <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</a>
             </div>
         </div>
     @endforeach
