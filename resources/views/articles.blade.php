@@ -18,7 +18,7 @@
             @endif
             <div class="card-body">
                 <h5 class="card-title">{{ $article->nom }}</h5>
-                <a href="#" class="btn btn-primary"><i class="fas fa-info-circle"></i> Détails</a>
+                <a href="/show/{{ $article->id }}" class="btn btn-primary"><i class="fas fa-info-circle"></i> Détails</a>
                 <a href="/update/{{ $article->id }}" class="btn btn-info"><i class="fas fa-edit"></i> Modifier</a>
                 <a href="/delete{{ $article->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</a>
             </div>

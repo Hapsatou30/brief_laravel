@@ -64,4 +64,9 @@ class ArticleController extends Controller
         $article ->delete();
         return redirect('/articles')->with('status', 'L\'article a bien été supprimer avec succès.');
     }
+    public function showDetails($id)
+    {
+        $article = Article::find($id);
+        return view('show', ['article'=>$article]);
+    }
 }
