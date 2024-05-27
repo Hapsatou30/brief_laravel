@@ -18,16 +18,18 @@ class itemController extends Controller
     public function processingAdd(Request $request)
     {
         $request->validate([
-            'nom' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
-            'description' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
+            'id' => 'required|exists:items,id',
+            'nom' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
+            'description' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
             'date_creation' => 'required',
             'la_une' => 'nullable|boolean',
             'image' => ['required', 'url'], // Doit être une URL valide
         ], [
-            'nom.regex' => 'Le champ nom ne doit contenir que des lettres et des espaces.',
-            'description.regex' => 'Le champ description ne doit contenir que des lettres et des espaces.',
+            'nom.regex' => 'Le champ nom ne doit contenir que des lettres, espaces, tirets, apostrophes, virgules et points.',
+            'description.regex' => 'Le champ description ne doit contenir que des lettres, espaces, tirets, apostrophes, virgules et points.',
             'image.url' => 'Le champ image doit être une URL valide.',
         ]);
+        
         
         $item = new item();
         $item->nom = $request->nom;
@@ -48,16 +50,16 @@ class itemController extends Controller
     {
         $request->validate([
             'id' => 'required|exists:items,id',
-            'nom' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
-            'description' => ['required', 'regex:/^[\pL\s]+$/u'], // Seuls les mots séparés par des espaces sont autorisés
+            'nom' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
+            'description' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
             'date_creation' => 'required',
             'la_une' => 'nullable|boolean',
             'image' => ['required', 'url'], // Doit être une URL valide
         ], [
-            'nom.regex' => 'Le champ nom ne doit contenir que des lettres et des espaces.',
-            'description.regex' => 'Le champ description ne doit contenir que des lettres et des espaces.',
+            'nom.regex' => 'Le champ nom ne doit contenir que des lettres, espaces, tirets, apostrophes, virgules et points.',
+            'description.regex' => 'Le champ description ne doit contenir que des lettres, espaces, tirets, apostrophes, virgules et points.',
             'image.url' => 'Le champ image doit être une URL valide.',
-        ]);
+        ]);        
         $item = item::find($request->id);
         $item->nom = $request->nom;
         $item->description = $request->description;
