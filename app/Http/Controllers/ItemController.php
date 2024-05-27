@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\item;
+use App\Models\Item;
 
 class itemController extends Controller
 {
@@ -18,7 +18,6 @@ class itemController extends Controller
     public function processingAdd(Request $request)
     {
         $request->validate([
-            'id' => 'required|exists:items,id',
             'nom' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
             'description' => ['required', 'regex:/^[a-zA-Z\s\-\'\,\.]+$/'], // Permet les lettres, espaces, tirets, apostrophes, virgules et points
             'date_creation' => 'required',
